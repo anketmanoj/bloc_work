@@ -1,6 +1,9 @@
+import 'package:bloc_work/intro_to_bloc/first_example_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'dart:math' as math show Random;
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +21,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: BlocProvider(
+        create: (_) => PersonsBloc(),
+        child: FirstExampleBloc(),
+      ),
     );
   }
 }
